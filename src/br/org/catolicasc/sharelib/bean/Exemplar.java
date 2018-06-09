@@ -27,9 +27,10 @@ public class Exemplar implements Bean {
 
 	public Exemplar() {}
 
-	public Exemplar(Livro livro, Estante estante) {
+	public Exemplar(Livro livro, Estante estante, Status status) {
 		setLivro(livro);
 		setEstante(estante);
+		setStatus(status);
 	}
 
 	@Override
@@ -56,5 +57,14 @@ public class Exemplar implements Bean {
 
 	public void setEstante(Estante estante) {
 		this.estante = estante;
-	}	
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
 }

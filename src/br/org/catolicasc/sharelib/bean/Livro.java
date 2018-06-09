@@ -1,5 +1,6 @@
 package br.org.catolicasc.sharelib.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -91,5 +92,12 @@ public class Livro implements Bean {
 
 	public void setGenero(Genero genero) {
 		this.genero = genero;
+	}
+
+	public List<Exemplar> getExemplares() {
+		if (exemplares == null)
+			exemplares = new ArrayList<Exemplar>();
+		
+		return exemplares;
 	}
 }
