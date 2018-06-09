@@ -4,7 +4,9 @@ import javax.persistence.EntityManager;
 
 import org.junit.Test;
 
+import br.org.catolicasc.sharelib.bean.Cargo;
 import br.org.catolicasc.sharelib.bean.Cliente;
+import br.org.catolicasc.sharelib.bean.Funcionario;
 import br.org.catolicasc.sharelib.jpa.JPAUtil;
 
 public class DBTest {
@@ -24,8 +26,22 @@ public class DBTest {
 		em.getTransaction().commit();
 	}
 	
+	@Test
+	public void salvaFuncionario() {
+		Funcionario funcionario = new Funcionario("Joshua de Carvalho", "256.698.777-66", "2.265.698", "98495-9987", Cargo.RECEPCIONISTA);
+		Funcionario funcionario2 = new Funcionario("Sônia Abraão", "257.566.987-16", "6.665.128", "99949-8987", Cargo.BIBLIOTECARIO);
+		Funcionario funcionario3 = new Funcionario("Carlos Abraão", "258.516.187-11", "1.661.118", "99911-8181", Cargo.BIBLIOTECARIO);
+		
+		em.getTransaction().begin();
+		em.persist(funcionario);
+		em.persist(funcionario2);
+		em.persist(funcionario3);
+		em.getTransaction().commit();
+	}
+	
 	public void run() {
 		salvaCliente();
+		salvaFuncionario();
 	}
 	
 }

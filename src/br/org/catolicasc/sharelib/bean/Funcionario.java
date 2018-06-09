@@ -1,6 +1,8 @@
 package br.org.catolicasc.sharelib.bean;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,11 +23,12 @@ public class Funcionario implements Bean {
 	private String rg;
 	private String numeroTelefone;
 	@NotNull
-	private String cargo;
+	@Enumerated(EnumType.STRING)
+	private Cargo cargo;
 
 	public Funcionario() {}
 	
-	public Funcionario(String nome, String cpf, String rg, String numeroTelefone, String cargo) {
+	public Funcionario(String nome, String cpf, String rg, String numeroTelefone, Cargo cargo) {
 		setNome(nome);
 		setCpf(cpf);
 		setRg(rg);
@@ -73,11 +76,11 @@ public class Funcionario implements Bean {
 		this.numeroTelefone = numeroTelefone;
 	}
 
-	public String getCargo() {
+	public Cargo getCargo() {
 		return cargo;
 	}
 
-	public void setCargo(String cargo) {
+	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
 	}
 }
