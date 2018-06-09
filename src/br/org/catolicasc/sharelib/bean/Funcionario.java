@@ -17,15 +17,18 @@ public class Funcionario implements Bean {
 	private String nome;
 	@NotNull
 	private String cpf;
+	@NotNull
+	private String rg;
 	private String numeroTelefone;
 	@NotNull
 	private String cargo;
 
 	public Funcionario() {}
 	
-	public Funcionario(String nome, String cpf, String numeroTelefone, String cargo) {
+	public Funcionario(String nome, String cpf, String rg, String numeroTelefone, String cargo) {
 		setNome(nome);
 		setCpf(cpf);
+		setRg(rg);
 		setNumeroTelefone(numeroTelefone);
 		setCargo(cargo);
 	}
@@ -52,6 +55,14 @@ public class Funcionario implements Bean {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	
+	public String getRg() {
+		return rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
 	}
 
 	public String getNumeroTelefone() {

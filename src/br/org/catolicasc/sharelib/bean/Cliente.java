@@ -1,13 +1,9 @@
 package br.org.catolicasc.sharelib.bean;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -20,17 +16,16 @@ public class Cliente implements Bean {
 	private String nome;
 	@NotNull
 	private String cpf;
+	private String rg;
 	private String numeroTelefone;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataNascimento;
 
 	public Cliente() {}
 
-	public Cliente(String nome, String cpf, String numeroTelefone, Date dataNascimento) {
+	public Cliente(String nome, String cpf, String rg, String numeroTelefone) {
 		setNome(nome);
 		setCpf(cpf);
+		setRg(rg);
 		setNumeroTelefone(numeroTelefone);
-		setDataNascimento(dataNascimento);
 	}
 
 	public Long getId() {
@@ -65,12 +60,12 @@ public class Cliente implements Bean {
 		this.numeroTelefone = numeroTelefone;
 	}
 
-	public Date getDataNascimento() {
-		return dataNascimento;
+	public String getRg() {
+		return rg;
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setRg(String rg) {
+		this.rg = rg;
 	}
 	
 }
