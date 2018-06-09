@@ -44,7 +44,6 @@ public class DBTest {
 		em.getTransaction().commit();
 	}
 	
-	/*@Test
 	public Estante salvaEstante() {
 		Estante estante = new Estante("A");
 		Estante estante2 = new Estante("B");
@@ -71,10 +70,10 @@ public class DBTest {
 	}
 	
 	public void run() {
-		//salvaCliente();
-		//salvaFuncionario();
-		//salvaLivroERespectivosExemplares();
-		//salvaEstante();
-	}*/
+		salvaCliente();
+		salvaFuncionario();
+		salvaLivroERespectivosExemplares();
+		salvaEstante();
+	}
 	
 }
