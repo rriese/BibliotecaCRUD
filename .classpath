@@ -36,6 +36,7 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/validation-api-1.0.0.GA.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/BootsFaces-OSP-1.2.0-dist.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
