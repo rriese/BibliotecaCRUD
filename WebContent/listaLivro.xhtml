@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:outputStylesheet library="css" name="sharelib.css" />
+</h:head>
+<h:body>
+	<h:form>
+		<p:dataTable 
+			rowClasses="table-linha-par, table-linha-impar"
+		value="#{livroController.livros}" var="livro"
+			paginator="true" rows="10">
+			<p:column>
+				<f:facet name="header">Código</f:facet>
+				#{livro.id}
+			</p:column>
+			<p:column>
+				<f:facet name="header">Nome</f:facet>
+				#{livro.nome}
+			</p:column>
+			<p:column>
+				<f:facet name="header">Editora</f:facet>		
+				#{livro.editora}
+			</p:column>
+			<p:column>
+				<f:facet name="header">IsbnId</f:facet>
+				#{livro.isbnId}
+			</p:column>
+			<p:column>
+				<f:facet name="header">Autor</f:facet>
+				#{livro.autor}
+			</p:column>
+			<p:column>
+				<f:facet name="header">Gênero</f:facet>
+				#{livro.genero}
+			</p:column>
+			<p:column>
+				<f:facet name="header">Ações</f:facet>
+				<center>
+				<h:commandButton value="Excluir"
+					action="#{livroController.remove(livro)}"
+					styleClass="btn-primary btn-block">
+				</h:commandButton>
+				<h:commandButton value="Editar"
+					action="#{livroController.edita}">
+					<f:setPropertyActionListener value="#{livro}"
+                        target="#{livroController.livro}" />
+				</h:commandButton>
+				</center>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>

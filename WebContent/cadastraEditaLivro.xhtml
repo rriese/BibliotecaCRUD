@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Cadastra Cliente</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:panelGrid columns="3">
+		Nome: 
+		<h:inputText 
+			value="#{livroController.livro.nome}" id="nome"
+			label="Nome" required="true">
+		</h:inputText>
+		<h:message for="nome" style="color:red" />
+		Editora: 
+		<h:inputText 
+			value="#{livroController.livro.editora}" id="editora"
+			label="Editora" required="true">
+		</h:inputText>
+		<h:message for="editora" style="color:red" />
+		Isbn: 
+		<h:inputText 
+			value="#{livroController.livro.isbnId}" id="isbnId"
+			label="Rg" required="true">
+		</h:inputText>
+		<h:message for="isbnId" style="color:red" />
+		Autor:
+		<h:inputText 
+			value="#{livroController.livro.autor}" id="autor"
+			label="Autor" required="true">
+		</h:inputText>
+		<h:message for="autor" style="color:red" />
+		Gênero: <h:selectOneMenu id="generos" value="#{livroController.livro.genero}"
+			required="true" label="Genero">
+    		<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
+    		<f:selectItems value="#{livroController.generos}"/>
+		</h:selectOneMenu>
+		<h:message for="generos" style="color:red" />
+		<h:commandButton value="Salvar" 
+			action="#{livroController.salva}">
+		</h:commandButton>
+		<h:inputHidden 
+			value="#{livroController.livro.id}">
+		</h:inputHidden>		
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
