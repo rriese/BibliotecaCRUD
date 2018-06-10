@@ -2,6 +2,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title>Cadastra Cliente</title>
@@ -9,15 +10,31 @@
 
 <h:body>
 	<h:form>
-		<h:panelGrid columns="2">
-		Nome: <h:inputText 
-			value="#{clienteController.cliente.nome}"></h:inputText>
-		Cpf: <h:inputText 
-			value="#{clienteController.cliente.cpf}"></h:inputText>
-		Rg: <h:inputText 
-			value="#{clienteController.cliente.rg}"></h:inputText>
-		Numero de Telefone: <h:inputText 
-			value="#{clienteController.cliente.numeroTelefone}"></h:inputText>
+		<h:panelGrid columns="3">
+		Nome: 
+		<h:inputText 
+			value="#{clienteController.cliente.nome}" id="nome"
+			label="Nome" required="true">
+		</h:inputText>
+		<h:message for="nome" style="color:red" />
+		Cpf: 
+		<h:inputText 
+			value="#{clienteController.cliente.cpf}" id="cpf"
+			label="Cpf" required="true">
+		</h:inputText>
+		<h:message for="cpf" style="color:red" />
+		Rg: 
+		<h:inputText 
+			value="#{clienteController.cliente.rg}" id="rg"
+			label="Rg" required="true">
+		</h:inputText>
+		<h:message for="rg" style="color:red" />
+		Numero de Telefone:
+		<h:inputText 
+			value="#{clienteController.cliente.numeroTelefone}" id="telefone"
+			label="Número de Telefone" required="true">
+		</h:inputText>
+		<h:message for="telefone" style="color:red" />
 		<h:commandButton value="Salvar" 
 			action="#{clienteController.salva}">
 		</h:commandButton>		

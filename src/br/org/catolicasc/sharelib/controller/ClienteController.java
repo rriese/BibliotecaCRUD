@@ -40,4 +40,8 @@ public class ClienteController {
 	public QueryDataModel<Cliente> getListaPaginada(){
 		return this.clienteDao.listaPaginadaLazy();
 	}
+
+	public void edita(Cliente cliente) {
+		this.cliente = cliente;
+	}
 }

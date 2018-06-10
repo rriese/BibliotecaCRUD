@@ -9,33 +9,40 @@
 	<h:form>
 		<p:dataTable 
 			rowClasses="table-linha-par, table-linha-impar"
-		value="#{clienteController.listaPaginada}" var="cliente"
-			paginator="true" lazy="true" rows="10" border="1">
+		value="#{clienteController.clientes}" var="cliente"
+			paginator="true" rows="10">
 			<p:column>
-				<f:facet name="header">id</f:facet>
+				<f:facet name="header">Código</f:facet>
 				#{cliente.id}
 			</p:column>
 			<p:column>
-				<f:facet name="header">nome</f:facet>
+				<f:facet name="header">Nome</f:facet>
 				#{cliente.nome}
 			</p:column>
 			<p:column>
-				<f:facet name="header">cpf</f:facet>		
+				<f:facet name="header">Cpf</f:facet>		
 				#{cliente.cpf}
 			</p:column>
 			<p:column>
-				<f:facet name="header">rg</f:facet>
+				<f:facet name="header">Rg</f:facet>
 			#{cliente.rg}
 			</p:column>
 			<p:column>
-				<f:facet name="header">numeroTelefone</f:facet>
+				<f:facet name="header">Número de Telefone</f:facet>
 				#{cliente.numeroTelefone}
 			</p:column>
 			<p:column>
 				<f:facet name="header">Ações</f:facet>
-				<h:commandLink action="#{clienteController.remove(cliente)}">
-				excluir
-			</h:commandLink>
+				<center>
+				<h:commandButton value="Excluir"
+					action="#{clienteController.remove(cliente)}"
+					styleClass="btn-primary btn-block">
+				</h:commandButton>
+				<h:commandButton value="Editar"
+					actionListener="#{clienteController.edita(cliente)}"
+					update="cadastraCliente.xhtml">
+				</h:commandButton>
+				</center>
 			</p:column>
 		</p:dataTable>
 	</h:form>
