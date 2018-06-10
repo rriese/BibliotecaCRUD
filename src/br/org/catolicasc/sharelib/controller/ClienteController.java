@@ -46,6 +46,6 @@ public class ClienteController {
 	}
 
 	public String edita() {
-		return "cadastraCliente.xhtml";
+		return "cadastraEditaCliente.xhtml";
 	}
 }

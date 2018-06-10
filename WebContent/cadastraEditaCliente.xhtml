@@ -11,9 +11,6 @@
 <h:body>
 	<h:form>
 		<h:panelGrid columns="3">
-		<h:inputHidden 
-			value="#{clienteController.cliente.id}">
-		</h:inputHidden>
 		Nome: 
 		<h:inputText 
 			value="#{clienteController.cliente.nome}" id="nome"
@@ -40,7 +37,10 @@
 		<h:message for="telefone" style="color:red" />
 		<h:commandButton value="Salvar" 
 			action="#{clienteController.salva}">
-		</h:commandButton>		
+		</h:commandButton>
+		<h:inputHidden 
+			value="#{clienteController.cliente.id}">
+		</h:inputHidden>		
 		</h:panelGrid>
 	</h:form>
 </h:body>
