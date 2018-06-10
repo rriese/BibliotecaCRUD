@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 
-import br.org.catolicasc.sharelib.jpa.QueryDataModel;
-import br.org.catolicasc.sharelib.dao.EstanteDao;
 import br.org.catolicasc.sharelib.bean.Estante;
+import br.org.catolicasc.sharelib.dao.EstanteDao;
+import br.org.catolicasc.sharelib.jpa.QueryDataModel;
 
 @ManagedBean
 public class EstanteController {

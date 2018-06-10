@@ -36,10 +36,12 @@ public class Funcionario implements Bean {
 		setCargo(cargo);
 	}
 
+	@Override
 	public Long getId() {
 		return id;
 	}
 
+	@Override
 	public void setId(Long id) {
 		this.id = id;
 	}

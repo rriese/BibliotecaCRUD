@@ -28,10 +28,12 @@ public class Cliente implements Bean {
 		setNumeroTelefone(numeroTelefone);
 	}
 
+	@Override
 	public Long getId() {
 		return id;
 	}
 
+	@Override
 	public void setId(Long id) {
 		this.id = id;
 	}

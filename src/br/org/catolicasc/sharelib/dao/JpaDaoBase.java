@@ -19,6 +19,7 @@ public abstract class JpaDaoBase<T extends Bean> implements Dao<T> {
 				.getGenericSuperclass()).getActualTypeArguments()[0];
 	}
 
+	@Override
 	public void salva(T t) {
 		if (t.getId() == null)
 			JPAUtil.getEntityManager().persist(t);
@@ -26,6 +27,7 @@ public abstract class JpaDaoBase<T extends Bean> implements Dao<T> {
 			JPAUtil.getEntityManager().merge(t);
 	}
 
+	@Override
 	public void remove(T t) {
 		JPAUtil.getEntityManager().remove(this.buscaPorld(t.getId()));
 	}
@@ -34,16 +36,19 @@ public abstract class JpaDaoBase<T extends Bean> implements Dao<T> {
 		JPAUtil.getEntityManager().merge(t);
 	}
 
+	@Override
 	public List<T> listaTodos() {
 		Query query = JPAUtil.getEntityManager().createQuery(getQueryAll());
 		List<T> lista = query.getResultList();
 		return lista;
 	}
 
+	@Override
 	public T buscaPorld(Long id) {
-		return (T) JPAUtil.getEntityManager().find(classe, id);
+		return JPAUtil.getEntityManager().find(classe, id);
 	}
 
+	@Override
 	public List<T> listaPaginada(int ini, int max) {
 		Query query = JPAUtil.getEntityManager().createQuery(getQueryAll());
 		query.setFirstResult(ini);
