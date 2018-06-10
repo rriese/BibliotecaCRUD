@@ -25,7 +25,11 @@ public class ClienteController {
 	}
 	
 	public void salva() {
-		clienteDao.salva(cliente);
+		if (cliente.getId() == null)
+			clienteDao.salva(cliente);
+		else
+			clienteDao.atualiza(cliente);
+		
 		this.cliente = new Cliente();
 	}
 	
@@ -41,7 +45,7 @@ public class ClienteController {
 		return this.clienteDao.listaPaginadaLazy();
 	}
 
-	public void edita(Cliente cliente) {
-		this.cliente = cliente;
+	public String edita() {
+		return "cadastraCliente.xhtml";
 	}
 }

@@ -11,6 +11,9 @@
 <h:body>
 	<h:form>
 		<h:panelGrid columns="3">
+		<h:inputHidden 
+			value="#{clienteController.cliente.id}">
+		</h:inputHidden>
 		Nome: 
 		<h:inputText 
 			value="#{clienteController.cliente.nome}" id="nome"

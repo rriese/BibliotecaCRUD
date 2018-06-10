@@ -39,8 +39,9 @@
 					styleClass="btn-primary btn-block">
 				</h:commandButton>
 				<h:commandButton value="Editar"
-					actionListener="#{clienteController.edita(cliente)}"
-					update="cadastraCliente.xhtml">
+					action="#{clienteController.edita}">
+					<f:setPropertyActionListener value="#{cliente}"
+                        target="#{clienteController.cliente}" />
 				</h:commandButton>
 				</center>
 			</p:column>
