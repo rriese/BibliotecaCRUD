@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:outputStylesheet library="css" name="sharelib.css" />
+</h:head>
+<h:body>
+	<h:form>
+		<p:dataTable 
+			rowClasses="table-linha-par, table-linha-impar"
+		value="#{clienteController.listaPaginada}" var="cliente"
+			paginator="true" lazy="true" rows="10" border="1">
+			<p:column>
+				<f:facet name="header">id</f:facet>
+				#{cliente.id}
+			</p:column>
+			<p:column>
+				<f:facet name="header">nome</f:facet>
+				#{cliente.nome}
+			</p:column>
+			<p:column>
+				<f:facet name="header">cpf</f:facet>		
+				#{cliente.cpf}
+			</p:column>
+			<p:column>
+				<f:facet name="header">rg</f:facet>
+			#{cliente.rg}
+			</p:column>
+			<p:column>
+				<f:facet name="header">numeroTelefone</f:facet>
+				#{cliente.numeroTelefone}
+			</p:column>
+			<p:column>
+				<f:facet name="header">Ações</f:facet>
+				<h:commandLink action="#{clienteController.remove(cliente)}">
+				excluir
+			</h:commandLink>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>
