@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Cadastra/Edita Funcionario</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:panelGrid columns="3">
+		Nome: 
+		<h:inputText 
+			value="#{funcionarioController.funcionario.nome}" id="nome"
+			label="Nome" required="true">
+		</h:inputText>
+		<h:message for="nome" style="color:red" />
+		Cpf: 
+		<h:inputText 
+			value="#{funcionarioController.funcionario.cpf}" id="cpf"
+			label="Cpf" required="true">
+		</h:inputText>
+		<h:message for="cpf" style="color:red" />
+		Rg: 
+		<h:inputText 
+			value="#{funcionarioController.funcionario.rg}" id="rg"
+			label="Rg" required="true">
+		</h:inputText>
+		<h:message for="rg" style="color:red" />
+		Numero de Telefone:
+		<h:inputText 
+			value="#{funcionarioController.funcionario.numeroTelefone}" id="telefone"
+			label="Número de Telefone" required="true">
+		</h:inputText>
+		<h:message for="telefone" style="color:red" />
+		Cargo: <h:selectOneMenu id="cargos" value="#{funcionarioController.funcionario.cargo}"
+			required="true" label="Cargo">
+    		<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
+    		<f:selectItems value="#{funcionarioController.cargos}"/>
+		</h:selectOneMenu>
+		<h:message for="cargos" style="color:red" />
+		<h:commandButton value="Salvar" 
+			action="#{funcionarioController.salva}">
+		</h:commandButton>
+		<h:inputHidden 
+			value="#{funcionarioController.funcionario.id}">
+		</h:inputHidden>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

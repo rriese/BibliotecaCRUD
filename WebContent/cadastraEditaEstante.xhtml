@@ -16,6 +16,7 @@
 			value="#{estanteController.estante.nome}" id="nome"
 			label="Nome" required="true">
 		</h:inputText>
+		<h:message for="nome" style="color:red" />
 		<h:commandButton value="Salvar" 
 			action="#{estanteController.salva}">
 		</h:commandButton>

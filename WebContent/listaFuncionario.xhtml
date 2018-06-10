@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:outputStylesheet library="css" name="sharelib.css" />
+</h:head>
+<h:body>
+	<h:form>
+		<p:dataTable 
+			rowClasses="table-linha-par, table-linha-impar"
+		value="#{funcionarioController.funcionarios}" var="funcionario"
+			paginator="true" rows="10">
+			<p:column>
+				<f:facet name="header">Código</f:facet>
+				#{funcionario.id}
+			</p:column>
+			<p:column>
+				<f:facet name="header">Nome</f:facet>
+				#{funcionario.nome}
+			</p:column>
+			<p:column>
+				<f:facet name="header">Cpf</f:facet>		
+				#{funcionario.cpf}
+			</p:column>
+			<p:column>
+				<f:facet name="header">Rg</f:facet>
+				#{funcionario.rg}
+			</p:column>
+			<p:column>
+				<f:facet name="header">Número de Telefone</f:facet>
+				#{funcionario.numeroTelefone}
+			</p:column>
+			<p:column>
+				<f:facet name="header">Cargo</f:facet>
+				#{funcionario.cargo}
+			</p:column>
+			<p:column>
+				<f:facet name="header">Ações</f:facet>
+				<center>
+				<h:commandButton value="Excluir"
+					action="#{funcionarioController.remove(funcionario)}"
+					styleClass="btn-primary btn-block">
+				</h:commandButton>
+				<h:commandButton value="Editar"
+					action="#{funcionarioController.edita}">
+					<f:setPropertyActionListener value="#{funcionario}"
+                        target="#{funcionarioController.funcionario}" />
+				</h:commandButton>
+				</center>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>
