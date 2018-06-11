@@ -6,9 +6,16 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:b="http://bootsfaces.net/ui">
 
-<b:container>
-	<footer>
-	<p>© Sharelib - Todos os direitos reservados 2018</p>
-	</footer>
-</b:container>
+<ui:insert name="header">
+	<ui:include src="/resources/template/header.xhtml" />
+</ui:insert>
+
+<ui:insert name="content">
+	<ui:include src="/resources/template/content.xhtml" />
+</ui:insert>
+
+<ui:insert name="footer">
+	<ui:include src="/resources/template/footer.xhtml" />
+</ui:insert>
+
 </html>
