@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Sharelib - Sistema de Gerenciamento</title>
+        <meta name="author" content="Rafael Riese"></meta>
+    </h:head>
+    <h:body style="padding-top: 50px; padding-bottom: 20px;">
+        <b:navBar brand="Sharelib" brandhref="default.xhtml" inverse="true" fixed="top">
+        #{' '}
+            <b:navbarLinks>
+                <b:dropMenu value="Cliente">
+                    <b:navLink value="Cadastrar" href="cadastraEditaCliente.xhtml"></b:navLink>
+                    <b:navLink value="Listar" href="listaCliente.xhtml"></b:navLink>
+                    <b:navLink></b:navLink>
+                    <b:navLink header="Clientes"></b:navLink>   
+                </b:dropMenu>
+                <b:dropMenu value="Funcionário">
+                    <b:navLink value="Cadastrar" href="#"></b:navLink>
+                    <b:navLink value="Listar" href="#"></b:navLink>
+                    <b:navLink></b:navLink>
+                    <b:navLink header="Funcionários"></b:navLink>   
+                </b:dropMenu>
+                <b:dropMenu value="Livro">
+                    <b:navLink value="Cadastrar" href="#"></b:navLink>
+                    <b:navLink value="Listar" href="#"></b:navLink>
+                    <b:navLink></b:navLink>
+                    <b:navLink header="Livros"></b:navLink>   
+                </b:dropMenu>
+                <b:dropMenu value="Estante">
+                    <b:navLink value="Cadastrar" href="#"></b:navLink>
+                    <b:navLink value="Listar" href="#"></b:navLink>
+                    <b:navLink></b:navLink>
+                    <b:navLink header="Estantes"></b:navLink>   
+                </b:dropMenu>
+                <b:dropMenu value="Exemplar">
+                    <b:navLink value="Cadastrar" href="#"></b:navLink>
+                    <b:navLink value="Listar" href="#"></b:navLink>
+                    <b:navLink></b:navLink>
+                    <b:navLink header="Exemplares"></b:navLink>   
+                </b:dropMenu>
+            </b:navbarLinks>
+        </b:navBar>
+        <b:jumbotron>
+            
+        </b:jumbotron>
+        <b:container>          
+            <footer>
+            <p>© Rafael Riese 2018</p>
+            </footer>
+        </b:container>
+  
+    </h:body>
+</html>
