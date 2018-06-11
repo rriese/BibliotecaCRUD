@@ -13,19 +13,25 @@
 	<h:form>
 		<h:panelGrid columns="3">
 		Livro: <h:selectOneMenu id="livro" value="#{exemplarController.exemplar.livro}"
-			required="true" label="Livro">
+			required="true" label="Livro" converter="entityConverter">
     		<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
     		<f:selectItems value="#{livroController.livros}"
     		var="livro"	itemValue="#{livro}" itemLabel="#{livro.nome}" />
 		</h:selectOneMenu>
 		<h:message for="livro" style="color:red" />
 		Estante: <h:selectOneMenu id="estante" value="#{exemplarController.exemplar.estante}"
-			required="true" label="Estante">
+			required="true" label="Estante" converter="entityConverter">
     		<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
     		<f:selectItems value="#{estanteController.estantes}"
     		var="estante"	itemValue="#{estante}" itemLabel="#{estante.nome}" />
 		</h:selectOneMenu>
 		<h:message for="estante" style="color:red" />
+		Status: <h:selectOneMenu id="status" value="#{exemplarController.exemplar.status}"
+			required="true" label="Cargo">
+    		<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
+    		<f:selectItems value="#{exemplarController.status}"/>
+		</h:selectOneMenu>
+		<h:message for="status" style="color:red" />
 		<h:commandButton value="Salvar" 
 			action="#{exemplarController.salva}">
 		</h:commandButton>

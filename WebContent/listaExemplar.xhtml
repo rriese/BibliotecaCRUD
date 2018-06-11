@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:outputStylesheet library="css" name="sharelib.css" />
+</h:head>
+<h:body>
+	<h:form>
+		<p:dataTable 
+			rowClasses="table-linha-par, table-linha-impar"
+		value="#{exemplarController.exemplars}" var="exemplar"
+			paginator="true" rows="10">
+			<p:column>
+				<f:facet name="header">Código</f:facet>
+				#{exemplar.id}
+			</p:column>
+			<p:column>
+				<f:facet name="header">Livro</f:facet>
+				#{exemplar.livro.nome}
+			</p:column>
+			<p:column>
+				<f:facet name="header">Estante</f:facet>		
+				#{exemplar.estante.nome}
+			</p:column>
+			<p:column>
+				<f:facet name="header">Status</f:facet>		
+				#{exemplar.status}
+			</p:column>
+			<p:column>
+				<f:facet name="header">Ações</f:facet>
+				<center>
+				<h:commandButton value="Excluir"
+					action="#{exemplarController.remove(exemplar)}"
+					styleClass="btn-primary btn-block">
+				</h:commandButton>
+				<h:commandButton value="Editar"
+					action="#{exemplarController.edita}">
+					<f:setPropertyActionListener value="#{exemplar}"
+                        target="#{exemplarController.exemplar}" />
+				</h:commandButton>
+				</center>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>

@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import br.org.catolicasc.sharelib.jpa.QueryDataModel;
 import br.org.catolicasc.sharelib.bean.Exemplar;
 import br.org.catolicasc.sharelib.bean.Livro;
+import br.org.catolicasc.sharelib.bean.Status;
 import br.org.catolicasc.sharelib.dao.ExemplarDao;
 import br.org.catolicasc.sharelib.dao.LivroDao;
 
@@ -53,5 +54,9 @@ public class ExemplarController {
 	
 	public List<Livro> getLivros() {
 		return new LivroDao().listaTodos();
+	}
+	
+	public Status[] getStatus() {
+		return Status.values();
 	}
 }
