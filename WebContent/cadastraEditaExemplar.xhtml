@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Cadastra/Edita Exemplar</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:panelGrid columns="3">
+		Livro: <h:selectOneMenu id="livro" value="#{exemplarController.exemplar.livro}"
+			required="true" label="Livro">
+    		<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
+    		<f:selectItems value="#{livroController.livros}"
+    		var="livro"	itemValue="#{livro}" itemLabel="#{livro.nome}" />
+		</h:selectOneMenu>
+		<h:message for="livro" style="color:red" />
+		Estante: <h:selectOneMenu id="estante" value="#{exemplarController.exemplar.estante}"
+			required="true" label="Estante">
+    		<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
+    		<f:selectItems value="#{estanteController.estantes}"
+    		var="estante"	itemValue="#{estante}" itemLabel="#{estante.nome}" />
+		</h:selectOneMenu>
+		<h:message for="estante" style="color:red" />
+		<h:commandButton value="Salvar" 
+			action="#{exemplarController.salva}">
+		</h:commandButton>
+		<h:inputHidden 
+			value="#{exemplarController.exemplar.id}">
+		</h:inputHidden>		
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
