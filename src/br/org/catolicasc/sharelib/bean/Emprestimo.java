@@ -1,11 +1,14 @@
 package br.org.catolicasc.sharelib.bean;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -26,6 +29,9 @@ public class Emprestimo implements Bean{
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataPedido;
+	
+	@OneToMany(cascade=CascadeType.ALL)
+	private List<Exemplar> exemplares;
 	
 	public Emprestimo() {}
 	

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Empréstimo</title>
+</h:head>
+
+<h:body>
+	<p:dataTable id="itens" var="item" value="#{emprestimoController.linhas}" >   
+		<f:facet name="header">Tabela de Itens</f:facet>
+	        <p:column headerText="Descrição" style="text-align: center; width: 100px">  	               
+	                <p:inputText  size="33" > 			                 	  
+	                </p:inputText>          
+	       	</p:column>
+	       	<p:column headerText="Adcionar Item" style="text-align: center; width: 100px">  	               
+	                 <h:commandButton value="Adicionar" action="#{emprestimoController.adicionaLinha}" /> 
+		</p:column>
+	      	<p:column headerText="Apagar Item" style="text-align: center; width: 100px">  	               
+	               <h:commandButton value="Delete" action="#{emprestimoController.removeLinha(item)}" oncomplete="#{emprestimoController.linhas}"  />	            
+		</p:column>	
+	</p:dataTable>
+</h:body>
+</html>
