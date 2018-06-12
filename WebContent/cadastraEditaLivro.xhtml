@@ -3,51 +3,68 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui">
 <h:head>
 	<title>Cadastra Cliente</title>
 </h:head>
 
-<h:body>
-	<h:form>
-		<h:panelGrid columns="3">
-		Nome: 
-		<h:inputText 
-			value="#{livroController.livro.nome}" id="nome"
-			label="Nome" required="true">
-		</h:inputText>
-		<h:message for="nome" style="color:red" />
-		Editora: 
-		<h:inputText 
-			value="#{livroController.livro.editora}" id="editora"
-			label="Editora" required="true">
-		</h:inputText>
-		<h:message for="editora" style="color:red" />
-		Isbn: 
-		<h:inputText 
-			value="#{livroController.livro.isbnId}" id="isbnId"
-			label="Rg" required="true">
-		</h:inputText>
-		<h:message for="isbnId" style="color:red" />
-		Autor:
-		<h:inputText 
-			value="#{livroController.livro.autor}" id="autor"
-			label="Autor" required="true">
-		</h:inputText>
-		<h:message for="autor" style="color:red" />
-		Gênero: <h:selectOneMenu id="generos" value="#{livroController.livro.genero}"
-			required="true" label="Genero">
-    		<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
-    		<f:selectItems value="#{livroController.generos}"/>
-		</h:selectOneMenu>
-		<h:message for="generos" style="color:red" />
-		<h:commandButton value="Salvar" 
-			action="#{livroController.salva}">
-		</h:commandButton>
-		<h:inputHidden 
-			value="#{livroController.livro.id}">
-		</h:inputHidden>		
-		</h:panelGrid>
-	</h:form>
+<h:body style="padding-top: 20px; padding-bottom: 10px;">
+
+	<ui:composition template="/resources/template/layout.xhtml">
+		<ui:define name="content">
+			<br style="clear: left;" />
+			<br style="clear: left;" />
+			<h:panelGrid columns="3">
+		
+				<b:form horizontal="true">
+				<b:inputText placeholder="Nome" required="true" label="Nome"
+					colMd="8" labelColMd="2"
+					value="#{livroController.livro.nome}">
+					<f:facet name="prepend">
+						<b:icon name="user" />
+					</f:facet>
+				</b:inputText>
+
+				<b:inputText placeholder="Editora" required="true" label="Editora" colMd="8"
+					labelColMd="2" value="#{livroController.livro.editora}">
+					<f:facet name="prepend">
+					</f:facet>
+				</b:inputText>
+
+				<b:inputText placeholder="IsbnId" required="true" label="IsbnId" colMd="8"
+					labelColMd="2" value="#{livroController.livro.rg}">
+					<f:facet name="prepend">
+					</f:facet>
+				</b:inputText>
+
+				<b:inputText placeholder="Número de Telefone" required="true"
+					label="Número de Telefone" colMd="8" labelColMd="2"
+					value="#{funcionarioController.funcionario.numeroTelefone}">
+					<f:facet name="prepend">
+					</f:facet>
+				</b:inputText>
+
+				<b:selectOneMenu id="cargos"
+					value="#{funcionarioController.funcionario.cargo}" required="true"
+					label="Cargo" colMd="8" labelColMd="2">
+					<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
+					<f:selectItems value="#{funcionarioController.cargos}" />
+				</b:selectOneMenu>
+
+				<b:commandButton look="primary" value="Salvar" iconAwesome="rss"
+					action="#{funcionarioController.salva}" icon-align="right"
+					style="float: left" />
+
+				<h:inputHidden value="#{funcionarioController.funcionario.id}">
+				</h:inputHidden>
+			</b:form>
+		
+			</h:panelGrid>
+			</h:form>
+			<br style="clear: left;" />
+			<br style="clear: left;" />
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>
