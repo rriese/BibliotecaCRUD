@@ -3,45 +3,57 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui">
 <h:head>
 	<title>Cadastra Cliente</title>
 </h:head>
 
-<h:body>
-	<h:form>
-		<h:panelGrid columns="3">
-		Nome: 
-		<h:inputText 
-			value="#{clienteController.cliente.nome}" id="nome"
-			label="Nome" required="true">
-		</h:inputText>
-		<h:message for="nome" style="color:red" />
-		Cpf: 
-		<h:inputText 
-			value="#{clienteController.cliente.cpf}" id="cpf"
-			label="Cpf" required="true">
-		</h:inputText>
-		<h:message for="cpf" style="color:red" />
-		Rg: 
-		<h:inputText 
-			value="#{clienteController.cliente.rg}" id="rg"
-			label="Rg" required="true">
-		</h:inputText>
-		<h:message for="rg" style="color:red" />
-		Numero de Telefone:
-		<h:inputText 
-			value="#{clienteController.cliente.numeroTelefone}" id="telefone"
-			label="Número de Telefone" required="true">
-		</h:inputText>
-		<h:message for="telefone" style="color:red" />
-		<h:commandButton value="Salvar" 
-			action="#{clienteController.salva}">
-		</h:commandButton>
-		<h:inputHidden 
-			value="#{clienteController.cliente.id}">
-		</h:inputHidden>		
-		</h:panelGrid>
-	</h:form>
+<h:body style="padding-top: 20px; padding-bottom: 10px;">
+
+	<ui:composition template="/resources/template/layout.xhtml">
+		<ui:define name="content">
+			<br style="clear: left;" />
+			<br style="clear: left;" />
+
+			<b:form horizontal="true">
+				<b:inputText placeholder="Nome" required="true" label="Nome"
+					colMd="8" labelColMd="2" value="#{clienteController.cliente.nome}">
+					<f:facet name="prepend">
+						<b:icon name="user" />
+					</f:facet>
+				</b:inputText>
+
+				<b:inputText placeholder="Cpf" required="true" label="Cpf" colMd="8"
+					labelColMd="2" value="#{clienteController.cliente.cpf}">
+					<f:facet name="prepend">
+					</f:facet>
+				</b:inputText>
+
+				<b:inputText placeholder="Rg" required="true" label="Rg" colMd="8"
+					labelColMd="2" value="#{clienteController.cliente.rg}">
+					<f:facet name="prepend">
+					</f:facet>
+				</b:inputText>
+
+				<b:inputText placeholder="Número de Telefone" required="true"
+					label="Número de Telefone" colMd="8" labelColMd="2"
+					value="#{clienteController.cliente.numeroTelefone}">
+					<f:facet name="prepend">
+					</f:facet>
+				</b:inputText>
+
+				<b:commandButton look="primary" value="Salvar" iconAwesome="rss"
+					action="#{clienteController.salva}" icon-align="right" style="float: left" />
+
+				<h:inputHidden value="#{clienteController.cliente.id}">
+				</h:inputHidden>
+			</b:form>
+
+
+			<br style="clear: left;" />
+			<br style="clear: left;" />
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>
