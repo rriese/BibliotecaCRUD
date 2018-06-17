@@ -23,25 +23,24 @@
 					</f:facet>
 				</b:inputText>
 
-				<b:inputText placeholder="Editora" required="true" label="Editora" colMd="8"
-					labelColMd="2" value="#{livroController.livro.editora}">
+				<b:inputText placeholder="Editora" required="true" label="Editora"
+					colMd="8" labelColMd="2" value="#{livroController.livro.editora}">
 					<f:facet name="prepend">
 					</f:facet>
 				</b:inputText>
 
-				<b:inputText placeholder="IsbnId" required="true" label="IsbnId" colMd="8"
-					labelColMd="2" value="#{livroController.livro.isbnId}">
+				<b:inputText placeholder="IsbnId" required="true" label="IsbnId"
+					colMd="8" labelColMd="2" value="#{livroController.livro.isbnId}">
 					<f:facet name="prepend">
 					</f:facet>
 				</b:inputText>
-				
-				<b:inputText placeholder="Autor" required="true"
-					label="Autor" colMd="8" labelColMd="2"
-					value="#{livroController.livro.autor}">
+
+				<b:inputText placeholder="Autor" required="true" label="Autor"
+					colMd="8" labelColMd="2" value="#{livroController.livro.autor}">
 					<f:facet name="prepend">
 					</f:facet>
 				</b:inputText>
-				
+
 				<b:selectOneMenu id="generos"
 					value="#{livroController.livro.genero}" required="true"
 					label="Gênero" colMd="8" labelColMd="2">
@@ -50,7 +49,8 @@
 				</b:selectOneMenu>
 
 				<b:commandButton look="primary" value="Salvar" iconAwesome="rss"
-					action="#{livroController.salva}" icon-align="right" style="float: left" />
+					action="#{livroController.salva}" icon-align="right"
+					style="float: left" />
 
 				<h:inputHidden value="#{livroController.livro.id}">
 				</h:inputHidden>
