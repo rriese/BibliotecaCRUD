@@ -22,6 +22,7 @@ public class Exemplar implements Bean {
 	@NotNull
 	@ManyToOne
 	private Estante estante;
+	@NotNull
 	@Enumerated(EnumType.STRING)
 	private Status status;
 

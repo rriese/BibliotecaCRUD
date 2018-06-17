@@ -10,8 +10,6 @@ import org.slf4j.LoggerFactory;
 
 import br.org.catolicasc.sharelib.jpa.JPAUtil;
 
-
-
 @FacesConverter("entityConverter")
 public class EntityConverter implements Converter {
 
