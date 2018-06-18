@@ -33,29 +33,11 @@
 						itemLabel="#{funcionario.nome}" />
 				</b:selectOneMenu>
 
-				<p:dataTable rowClasses="table-linha-par, table-linha-impar"
-					value="#{exemplarController.exemplars}" var="exemplar"
-					paginator="true" rows="10">
-					<f:facet name="header">
-        				Exemplares
-    				</f:facet>
-					<p:column>
-						<f:facet name="header">Código</f:facet>  
- 				#{exemplar.id}  
- 			</p:column>
-					<p:column>
-						<f:facet name="header">Livro</f:facet>  
- 				#{exemplar.livro.nome}  
- 			</p:column>
-					<p:column>
-						<f:facet name="header">#</f:facet>
-						<center>
-							<h:commandButton value="Adicionar no carrinho"
-								action="#{emprestimoController.adicionaCarrinho(exemplar)}">
-							</h:commandButton>
-						</center>
-					</p:column>
-				</p:dataTable>
+				<b:selectMultiMenu value="#{emprestimoController.emprestimo.exemplares}"
+					label="Exemplares" converter="entityConverter" colMd="8" labelColMd="2">
+					<f:selectItems value="#{exemplarController.exemplars}" var="exemplar"
+					itemValue="#{exemplar}" itemLabel="#{exemplar.id}" />
+				</b:selectMultiMenu>
 
 				<b:commandButton look="primary" value="Salvar" iconAwesome="rss"
 					action="#{emprestimoController.salva}" icon-align="right"

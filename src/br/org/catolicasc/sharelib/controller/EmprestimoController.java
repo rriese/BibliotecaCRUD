@@ -51,8 +51,4 @@ public class EmprestimoController {
 		return "cadastraEditaEmprestimo.xhtml";
 	}
 
-	public void adicionaCarrinho(Exemplar exemplar) {
-		this.emprestimo.getExemplares().add(exemplar);
-	}
-
 }
