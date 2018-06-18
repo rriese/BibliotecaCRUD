@@ -43,7 +43,7 @@ public class Livro implements Bean {
 		setAutor(autor);
 		setGenero(genero);
 	}
-
+	
 	@Override
 	public Long getId() {
 		return id;

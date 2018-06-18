@@ -16,13 +16,10 @@ public class Exemplar implements Bean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@NotNull
 	@ManyToOne
 	private Livro livro;
-	@NotNull
 	@ManyToOne
 	private Estante estante;
-	@NotNull
 	@Enumerated(EnumType.STRING)
 	private Status status;
 

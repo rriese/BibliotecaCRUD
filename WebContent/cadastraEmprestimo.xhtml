@@ -4,24 +4,69 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
 <h:head>
 	<title>Empréstimo</title>
 </h:head>
 
-<h:body>
-	<p:dataTable id="itens" var="item" value="#{emprestimoController.linhas}" >   
-		<f:facet name="header">Tabela de Itens</f:facet>
-	        <p:column headerText="Descrição" style="text-align: center; width: 100px">  	               
-	                <p:inputText  size="33" > 			                 	  
-	                </p:inputText>          
-	       	</p:column>
-	       	<p:column headerText="Adcionar Item" style="text-align: center; width: 100px">  	               
-	                 <h:commandButton value="Adicionar" action="#{emprestimoController.adicionaLinha}" /> 
-		</p:column>
-	      	<p:column headerText="Apagar Item" style="text-align: center; width: 100px">  	               
-	               <h:commandButton value="Delete" action="#{emprestimoController.removeLinha(item)}" oncomplete="#{emprestimoController.linhas}"  />	            
-		</p:column>	
-	</p:dataTable>
+<h:body style="padding-top: 20px; padding-bottom: 10px;">
+
+	<ui:composition template="/resources/template/layout.xhtml">
+		<ui:define name="content">
+			<br style="clear: left;" />
+			<br style="clear: left;" />
+
+			<b:form horizontal="true">
+
+				<b:selectOneMenu id="clientes"
+					value="#{emprestimoController.emprestimo.cliente}" label="Cliente"
+					colMd="8" labelColMd="2">
+					<f:selectItems value="#{clienteController.clientes}" var="cliente"
+						itemValue="#{cliente}" itemLabel="#{cliente.nome}" />
+				</b:selectOneMenu>
+
+				<b:selectOneMenu id="funcionarios"
+					value="#{emprestimoController.emprestimo.funcionario}"
+					label="Funcionário" colMd="8" labelColMd="2">
+					<f:selectItems value="#{funcionarioController.funcionarios}"
+						var="funcionario" itemValue="#{funcionario}"
+						itemLabel="#{funcionario.nome}" />
+				</b:selectOneMenu>
+
+				<p:dataTable rowClasses="table-linha-par, table-linha-impar"
+					value="#{exemplarController.exemplars}" var="exemplar"
+					paginator="true" rows="10">
+					<f:facet name="header">
+        				Exemplares
+    				</f:facet>
+					<p:column>
+						<f:facet name="header">Código</f:facet>  
+ 				#{exemplar.id}  
+ 			</p:column>
+					<p:column>
+						<f:facet name="header">Livro</f:facet>  
+ 				#{exemplar.livro.nome}  
+ 			</p:column>
+					<p:column>
+						<f:facet name="header">#</f:facet>
+						<center>
+							<h:commandButton value="Adicionar no carrinho"
+								action="#{emprestimoController.adicionaCarrinho(exemplar)}">
+							</h:commandButton>
+						</center>
+					</p:column>
+				</p:dataTable>
+
+				<b:commandButton look="primary" value="Salvar" iconAwesome="rss"
+					action="#{emprestimoController.salva}" icon-align="right"
+					style="float: left" />
+
+				<br style="clear: left;" />
+				<br style="clear: left;" />
+
+
+			</b:form>
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>

@@ -20,26 +20,23 @@
 			<b:form horizontal="true">
 
 				<b:selectOneMenu id="livros"
-					value="#{exemplarController.exemplar.livro}" required="true"
-					label="Livro" colMd="8" labelColMd="2" converter="entityConverter">
-					<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
+					value="#{exemplarController.exemplar.livro}"
+					label="Livro" colMd="8" labelColMd="2">
 					<f:selectItems value="#{livroController.livros}" var="livro"
 						itemValue="#{livro}" itemLabel="#{livro.nome}" />
 				</b:selectOneMenu>
 
 				<b:selectOneMenu id="estantes"
-					value="#{exemplarController.exemplar.estante}" required="true"
+					value="#{exemplarController.exemplar.estante}"
 					label="Estante" colMd="8" labelColMd="2"
-					converter="entityConverter">
-					<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
+					>
 					<f:selectItems value="#{estanteController.estantes}" var="estante"
 						itemValue="#{estante}" itemLabel="#{estante.nome}" />
 				</b:selectOneMenu>
 
 				<b:selectOneMenu id="status"
-					value="#{exemplarController.exemplar.status}" required="true"
+					value="#{exemplarController.exemplar.status}"
 					label="Status" colMd="8" labelColMd="2">
-					<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
 					<f:selectItems value="#{exemplarController.status}" />
 				</b:selectOneMenu>
 

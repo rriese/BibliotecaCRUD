@@ -1,5 +1,6 @@
 package br.org.catolicasc.sharelib.bean;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,26 +15,28 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import br.org.catolicasc.sharelib.dao.ExemplarDao;
+
 @Entity
 public class Emprestimo implements Bean{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	@NotNull
 	@OneToOne
 	private Cliente cliente;
-	@NotNull
 	@OneToOne
 	private Funcionario funcionario;
-	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataPedido;
+	private Date dataPedido = new Date(System.currentTimeMillis());;
 	
 	@OneToMany(cascade=CascadeType.ALL)
 	private List<Exemplar> exemplares;
 	
-	public Emprestimo() {}
+	public Emprestimo() {
+		if(this.exemplares == null)
+			this.exemplares = new ArrayList<Exemplar>();
+	}
 	
 	public Emprestimo(Cliente cliente, Funcionario funcionario, Date dataPedido) {
 		setCliente(cliente);
@@ -74,4 +77,9 @@ public class Emprestimo implements Bean{
 	public void setDataPedido(Date dataPedido) {
 		this.dataPedido = dataPedido;
 	}
+
+	public List<Exemplar> getExemplares() {
+		return exemplares;
+	}
+
 }
