@@ -4,20 +4,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.bean.ViewScoped;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
-
-import br.org.catolicasc.sharelib.dao.ExemplarDao;
 
 @Entity
+@ViewScoped
 public class Emprestimo implements Bean{
 
 	@Id
@@ -30,7 +30,7 @@ public class Emprestimo implements Bean{
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataPedido = new Date(System.currentTimeMillis());;
 	
-	@OneToMany(cascade=CascadeType.ALL)
+	@ManyToMany(mappedBy="emprestimos")
 	private List<Exemplar> exemplares;
 	
 	public Emprestimo() {
@@ -80,6 +80,14 @@ public class Emprestimo implements Bean{
 
 	public List<Exemplar> getExemplares() {
 		return exemplares;
+	}
+	
+	public void setExemplares(List<Exemplar> exemplares) {
+		this.exemplares = exemplares;
+	}
+	
+	public void addExemplar(Exemplar exemplar) {
+		this.exemplares.add(exemplar);
 	}
 
 }

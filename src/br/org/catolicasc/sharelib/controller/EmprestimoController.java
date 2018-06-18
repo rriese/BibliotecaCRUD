@@ -3,6 +3,7 @@ package br.org.catolicasc.sharelib.controller;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 import br.org.catolicasc.sharelib.jpa.QueryDataModel;
 import br.org.catolicasc.sharelib.bean.Emprestimo;
@@ -10,6 +11,7 @@ import br.org.catolicasc.sharelib.bean.Exemplar;
 import br.org.catolicasc.sharelib.dao.EmprestimoDao;
 
 @ManagedBean
+@ViewScoped
 public class EmprestimoController {
 
 	private Emprestimo emprestimo = new Emprestimo();
@@ -49,6 +51,10 @@ public class EmprestimoController {
 
 	public String edita() {
 		return "cadastraEditaEmprestimo.xhtml";
+	}
+	
+	public void adicionaCarrinho(Exemplar exemplar) {
+		emprestimo.addExemplar(exemplar);
 	}
 
 }

@@ -1,11 +1,14 @@
 package br.org.catolicasc.sharelib.bean;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import javax.validation.constraints.NotNull;
@@ -22,6 +25,8 @@ public class Exemplar implements Bean {
 	private Estante estante;
 	@Enumerated(EnumType.STRING)
 	private Status status;
+	@ManyToMany
+	private List<Emprestimo> emprestimos;
 
 	public Exemplar() {}
 
